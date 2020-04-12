@@ -1,0 +1,67 @@
+.container {
+    display: inline-flex;
+    flex-direction: column;
+}
+.topbtm {
+    display: flex;
+    justify-content: center;
+}
+.mid {
+    display: flex;
+    flex-direction: row;
+}
+.vertIcons {
+    display: flex;
+    flex-direction: column;
+}
+
+.symbolContainer {
+    position: relative;
+}
+.iconContainer {
+}
+
+.red {/* named color: crimson #DC143C */
+    filter: invert(17%) sepia(100%) saturate(6353%) hue-rotate(343deg) brightness(90%) contrast(90%);
+    
+}
+.darkkhaki {/* named color: darkkhaki #BDB76B */
+    /* filter: invert(94%) sepia(85%) saturate(5275%) hue-rotate(359deg) brightness(107%) contrast(105%) */
+    filter: invert(94%) sepia(42%) saturate(697%) hue-rotate(346deg) brightness(80%) contrast(81%)
+}
+.forestgreen {/* #228B22 */
+    filter: invert(35%) sepia(97%) saturate(613%) hue-rotate(77deg) brightness(96%) contrast(85%);
+}
+.om {
+    width: 150px;
+    height: 150px;
+    transition-duration: 0.15s;
+}
+
+.stack {
+    position: absolute;
+
+}
+
+.rotate90 {
+    transform: rotate(90deg);
+}
+
+.flipBtn {
+    transform: scale(-1,1);
+}
+
+.icon {
+
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.iconFlip {
+    transform: rotate(90deg);
+
+}
