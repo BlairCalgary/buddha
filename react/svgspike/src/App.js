@@ -2,6 +2,7 @@ import React from 'react';
 // import logo from './logo.svg';
 import Rotate from './components/rotate.js';
 import Flip from './components/flip.js';
+import Cards from './components/cards.js';
 // import flip from './flip.svg';
 import om from './om.svg';
 import './App.css';
@@ -29,6 +30,7 @@ function App() {
               </div> */}
             </div>
             <div className="symbolContainer">
+              <Cards card={om} />
               <img id="omSymbol" src={om} alt="om symbol" className="om stack" />
               <img id="mSymbol" src={om} alt="om symbol" className="om stack red" />
               <img id="Symbol" src={om} alt="om symbol" className="om stack darkkhaki" />
