@@ -8,53 +8,123 @@ import om from './om.svg';
 import './App.css';
 import './style.css';
 
-function App() {
-  return (
 
+let styles = {
+  transform: 'rotate(90deg)',
+};
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      blackCard: {
+        angle: 0,
+        mirrX: 0,
+        mirrY: 0,
+        cardColor: "black"
+      },
+      redCard: {
+        angle: 0,
+        mirrX: 0,
+        mirrY: 0,
+        cardColor: "red"
+      },
+      khakiCard: {
+        angle: 0,
+        mirrX: 0,
+        mirrY: 0,
+        cardColor: "khaki"
+      },
+      greenCard: {
+        angle: 0,
+        mirrX: 0,
+        mirrY: 0,
+        cardColor: "green"
+      },
+      cardTest: 1
+    }
+    this.rotateCard = this.rotateCard.bind(this)
+  }
+  rotateCard = (colorFromChild) => {
+    switch (colorFromChild) {
+      case "black":
+        // const rotation = this.state.blackCard.angle + 90;
+        const blackCard = this.state.blackCard;
+        blackCard.angle = this.state.blackCard.angle + 90;
+        this.setState({"blackCard":blackCard});
+        break;
+      case "red":
+        // const rotation = this.state.redCard.angle + 90;
+        const redCard = this.state.redCard;
+        redCard.angle = this.state.redCard.angle + 90;
+        this.setState({"redCard":redCard});
+                console.log("red");
+        break;
+      case "khaki":
+        // const rotation = this.state.khakiCard.angle + 90;
+        const khakiCard = this.state.khakiCard;
+        khakiCard.angle = this.state.khakiCard.angle + 90;
+        this.setState({"khakiCard":khakiCard});
+                console.log("khaki");
+        break;
+      case "green":
+        // const rotation = this.state.greenCard.angle + 90;
+        const greenCard = this.state.greenCard;
+        greenCard.angle = this.state.greenCard.angle + 90;
+        this.setState({"greenCard":greenCard});
+        console.log("green");
+        break;
+      default:
+        console.log("default")
+        break;
+      }
+  }
+  render () {
+    return (
     <div className="App">
       <header className="App-header">
         <div className="container">
           <div className="topbtm">
-            <Rotate filterColor="" />
-            <Flip filterColor="" />
+            <Rotate filterColor="" cardcolor="black" rotateThis={this.rotateCard}/>
+            <Flip filterColor="" cardcolor="black"/>
             {/* <div>
               <img id="flipBtn" src={flip} alt="flip" className="icon iconFlip" />
             </div> */}
           </div>
           <div className="mid">
             <div className="vertIcons">
-              <Rotate filterColor="darkkhaki" />
-              <Flip filterColor="darkkhaki" />
+              <Rotate filterColor="darkkhaki" cardcolor="khaki" rotateThis={this.rotateCard}/>
+              <Flip filterColor="darkkhaki" cardcolor="khaki" />
               {/* <div>
                 <img id="flipBtnZ" src={flip} alt="flip" className="icon iconFlip darkkhaki" />
               </div> */}
             </div>
             <div className="symbolContainer">
-              <Cards card={om} />
-              <img id="omSymbol" src={om} alt="om symbol" className="om stack" />
-              <img id="mSymbol" src={om} alt="om symbol" className="om stack red" />
-              <img id="Symbol" src={om} alt="om symbol" className="om stack darkkhaki" />
-              <img id="ymbol" src={om} alt="om symbol" className="om forestgreen" />
+              {/* <Cards card={om} angle={this.state.blackCard.angle}/> */}
+              <img id="omSymbol" src={om} alt="om symbol" className="om stack black" cardcolor="black" style={{transform: `rotate(${this.state.blackCard.angle}deg)`}} />
+              <img id="mSymbol" src={om} alt="om symbol" className="om stack red" cardcolor="red" style={{transform: `rotate(${this.state.redCard.angle}deg)`}}/>
+              <img id="Symbol" src={om} alt="om symbol" className="om stack darkkhaki"  cardcolor="khaki"style={{transform: `rotate(${this.state.khakiCard.angle}deg)`}}/>
+              <img id="ymbol" src={om} alt="om symbol" className="om forestgreen"  cardcolor="green"style={{transform: `rotate(${this.state.greenCard.angle}deg)`}}/>
             </div>
             <div className="vertIcons">
-              <Rotate filterColor="red" />
+              <Rotate filterColor="red" cardcolor="red" rotateThis={this.rotateCard}/>
               {/* <img id="rotateBtnZ" src={rotate} alt="rotate clockwise" className="icon red" /> */}
-              <Flip filterColor="red" />
+              <Flip filterColor="red" cardcolor="red" />
               {/* <img id="flipBtnZ" src={flip} alt="flip" className="icon iconFlip red" /> */}
             </div>
           </div>
           <div className="topbtm">
             {/* <div className="iconContainer"> */}
-              <Rotate filterColor="forestgreen" />
+              <Rotate filterColor="forestgreen" cardcolor="green" rotateThis={this.rotateCard}/>
               {/* <img id="rotateBtnZ" src={rotate} alt="rotate clockwise" className="icon forestgreen" /> */}
-              <Flip filterColor="forestgreen" />
+              <Flip filterColor="forestgreen" cardcolor="green" />
               {/* <img id="flipBtnZ" src={flip} alt="flip" className="icon iconFlip forestgreen" /> */}
             {/* </div> */}
           </div>
         </div>
       </header>
+      <output id="idOutput"></output>
     </div>
-  );
+  )};
 }
 
 export default App;
